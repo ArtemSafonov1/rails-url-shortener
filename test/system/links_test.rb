@@ -1,32 +1,34 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class LinksTest < ApplicationSystemTestCase
   setup do
     @link = links(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit links_url
-    assert_selector "h1", text: "Links"
+    assert_selector 'h1', text: 'Links'
   end
 
-  test "should create link" do
+  test 'should create link' do
     visit links_url
-    click_on "New link"
+    click_on 'New link'
 
-    fill_in "Clicked", with: @link.clicked
-    fill_in "Original url", with: @link.original_url
-    fill_in "Short url", with: @link.short_url
-    click_on "Create Link"
+    fill_in 'Clicked', with: @link.clicked
+    fill_in 'Original url', with: @link.original_url
+    fill_in 'Short url', with: @link.short_url
+    click_on 'Create Link'
 
-    assert_text "Link was successfully created"
-    click_on "Back"
+    assert_text 'Link was successfully created'
+    click_on 'Back'
   end
 
-  test "should destroy Link" do
+  test 'should destroy Link' do
     visit link_url(@link)
-    click_on "Destroy this link", match: :first
+    click_on 'Destroy this link', match: :first
 
-    assert_text "Link was successfully destroyed"
+    assert_text 'Link was successfully destroyed'
   end
 end
