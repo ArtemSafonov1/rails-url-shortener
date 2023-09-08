@@ -9,7 +9,10 @@ class LinksController < ApplicationController
   end
 
   # GET /links/1 or /links/1.json
-  def show; end
+  def show
+    @link.click
+    redirect_to @link.original_url, allow_other_host: true
+  end
 
   # GET /links/new
   def new
@@ -22,8 +25,8 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to link_url(@link), notice: 'Link was successfully created.' }
-        format.json { render :show, status: :created, location: @link }
+        format.html { redirect_to links_url, notice: 'Link was successfully created.' }
+        format.json { render :index, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @link.errors, status: :unprocessable_entity }
@@ -45,11 +48,11 @@ class LinksController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_link
-    @link = Link.find(params[:id])
+    @link = Link.find_by!(short_url: params[:short_url])
   end
 
   # Only allow a list of trusted parameters through.
   def link_params
-    params.require(:link).permit(:original_url, :short_url)
+    params.require(:link).permit(:original_url)
   end
 end
