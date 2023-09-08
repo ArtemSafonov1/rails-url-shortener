@@ -7,7 +7,7 @@ class Link < ApplicationRecord
   before_validation :generate_short_url
 
   def generate_short_url
-    self.short_url = SecureRandom.uuid[0..7]
+    self.short_url = "/s/#{SecureRandom.uuid[0..7]}"
   end
 
   def click

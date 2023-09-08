@@ -2,17 +2,16 @@
   <p>
     <strong>Original url:</strong>
     <%= link.original_url %>
-  </p>
 
-  <p>
+    <br>
+
     <strong>Short url:</strong>
     <%# TODO: make with nginx %>
-    <%= request.url %>/<%= link.short_url %>
-  </p>
+    <%= "#{request.url}#{link.short_url}" %>
 
-  <p>
+    <br>
+
     <strong>Clicked:</strong>
     <%= link.clicked %>
   </p>
-
 </div>
