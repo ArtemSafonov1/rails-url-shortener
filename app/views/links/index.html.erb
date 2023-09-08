@@ -6,8 +6,10 @@
   <% @links.each do |link| %>
     <%= render link %>
     <p>
-      <%= link_to "Show this link", link %>
+      <%= link_to "Follow link", link_path(link, short_url: link.short_url) %>
+      <%= button_to "Destroy this link", link_path(short_url: link.short_url), method: :delete %>
     </p>
+    <hr>
   <% end %>
 </div>
 

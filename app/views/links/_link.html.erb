@@ -6,7 +6,8 @@
 
   <p>
     <strong>Short url:</strong>
-    <%= link.short_url %>
+    <%# TODO: make with nginx %>
+    <%= request.url %>/<%= link.short_url %>
   </p>
 
   <p>
