@@ -1,13 +1,13 @@
 <div id="<%= dom_id link %>">
   <p>
     <strong>Original url:</strong>
-    <%= link.original_url %>
+    <%= link_to link.original_url, link.original_url, target: "_blank" %>
 
     <br>
 
     <strong>Short url:</strong>
     <%# TODO: make with nginx %>
-    <%= "#{request.url}#{link.short_url}" %>
+    <%= link_to "#{request.url}/s/#{link.short_url}", short_links_path(link.short_url), target: "_blank" %>
 
     <br>
 

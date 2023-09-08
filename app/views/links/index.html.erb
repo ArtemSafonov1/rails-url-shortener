@@ -6,7 +6,7 @@
   <% @links.each do |link| %>
     <%= render link %>
     <p>
-      <%= link_to "Follow link", short_links_path(link, short_url: link.short_url) %>
+      <%= link_to "Follow link", short_links_path(short_url: link.short_url), target: "_blank" %>
       <%= button_to "Destroy this link", link_path(short_url: link.short_url), method: :delete %>
     </p>
     <hr>
