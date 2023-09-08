@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: link_shortener_production
-  username: link_shortener
-  password: <%= ENV["LINK_SHORTENER_DATABASE_PASSWORD"] %>
+  # username: link_shortener
+  # password: <%= ENV["LINK_SHORTENER_DATABASE_PASSWORD"] %>
