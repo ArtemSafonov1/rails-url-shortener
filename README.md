@@ -39,3 +39,15 @@ The setup steps expect following tools installed on the system:
    bundle exec rails server
    ```
 6. Visit the site with the following URL http://localhost:3000/links
+
+### Twilio sms
+
+The `twilio-ruby` [gem](https://github.com/twilio/twilio-ruby) is used for SMS messaging.
+After creating new link, application will send sms to the specified mobile phone.
+You need specify the following environmental variables to enable this feature:
+```sh
+export TWILIO_ACCOUNT_SID=ENTER_YOUR_TWILIO_ACCOUNT_SID
+export TWILIO_AUTH_TOKEN=ENTER_YOUR_TWILIO_AUTH_TOKEN
+export TWILIO_ACCOUNT_NUMBER=ENTER_YOUR_TWILIO_ACCOUNT_NUMBER
+export YOUR_PHONE_NUMBER=ENTER_YOUR_VERIFIED_PHONE_NUMBER
+```
